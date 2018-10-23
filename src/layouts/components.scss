@@ -1,0 +1,63 @@
+.clock {
+	text-align: center;
+	font-size: 45px;
+	letter-spacing: 5px;
+	color: #70747f;
+	text-shadow: 0 0 2px green;
+}
+
+.rand-timer-notificator {
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	height: 10px;
+	border: solid 1px #eeeeee;
+	transition: all 0.5s;
+	opacity: 1;
+	margin-bottom: 5px;
+	&:after {
+		content: '';
+		position: absolute;
+		background-color: #44886c;
+		left: 0;
+		top: 0;
+		height: 100%;
+		animation-duration: var(--data-time);
+	}
+	&.delay {
+		&:after {
+			animation-name: rand-timer-notificator-animation-delay;
+			@keyframes rand-timer-notificator-animation-delay {
+				from {
+					width: 100%;
+					background-color: #44886c;
+				}
+				to {
+					width: 0%;
+					background-color: #e6b000;
+				}
+			}
+		}
+	}
+	&.randomizing {
+		&:after {
+			animation-name: rand-timer-notificator-animation-play;
+			@keyframes rand-timer-notificator-animation-play {
+				from {
+					width: 0%;
+					background-color: #e6b000;
+				}
+				to {
+					width: 100%;
+					background-color: #44886c;
+				}
+			}
+		}
+	}
+	&.playing {
+		opacity: 0;
+		&:after {
+			width: 100%;
+		}
+	}
+}

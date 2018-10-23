@@ -1,0 +1,10 @@
+{
+  "dest": "dist/",
+  "icon": "app/images/app-icon/png/1024x1024.png",
+  "categories": [
+    "Game"
+  ],
+  "lintianOverrides": [
+    "changelog-file-missing-in-native-package"
+  ]
+}

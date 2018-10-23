@@ -1,0 +1,37 @@
+{
+  "name": "magic-square",
+  "productName": "Magic Square",
+  "version": "1.0.0",
+  "description": "Magic square game",
+  "main": "main.js",
+  "author": "Filipe Roberto Beck",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "electron app/scripts/main.js",
+    "build": "gulp && cp package.json README.md app/",
+    "pack": "electron-packager app magic-square --overwrite --asar=true --platform=linux --arch=x64 --icon=app/images/app-icon/png/1024x1024.png --prune=true --out=dist",
+    "deb": "electron-installer-debian --src dist/magic-square-linux-x64/ --arch amd64 --config debian.json",
+    "make": "npm run build && npm run pack && npm run deb"
+  },
+  "dependencies": {
+    "electron": "^3.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^16.0.8",
+    "@types/react-redux": "^6.0.9",
+    "electron-installer-debian": "^1.0.0",
+    "electron-packager": "^12.2.0",
+    "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "pipe-builder": "^0.0.4",
+    "sass": "^1.14.1",
+    "typescript": "^3.1.1"
+  }
+}
